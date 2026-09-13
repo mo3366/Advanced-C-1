@@ -153,30 +153,38 @@ namespace Advanced_C__1
             //1. Base class (if any),
             //2. Interface(s),
             //3. `new()` constraint (if any).
-            
-    //        public interface IAuditable
-    //    {
-    //        void Audit();
-    //    }
-    //    public class BaseEntity
-    //    {
-    //        public int Id { get; set; }
-    //    }
-    //    public class Order BaseEntity, IAuditable
-    //    {
-    //    public void Audit()
-    //    {
-    //        Console.WriteLine("Order audited");
-    //    }
-    //    public Order() { } 
-    //     public class Repository<T> where T : BaseEntity, IAuditable, new()
-    //{
-    //    public T Create()
-    //    {
-    //        return new T();
-    //    }
-    //}
+
+            //        public interface IAuditable
+            //    {
+            //        void Audit();
+            //    }
+            //    public class BaseEntity
+            //    {
+            //        public int Id { get; set; }
+            //    }
+            //    public class Order BaseEntity, IAuditable
+            //    {
+            //    public void Audit()
+            //    {
+            //        Console.WriteLine("Order audited");
+            //    }
+            //    public Order() { } 
+            //     public class Repository<T> where T : BaseEntity, IAuditable, new()
+            //{
+            //    public T Create()
+            //    {
+            //        return new T();
+            //    }
+            //}
             #endregion
+
+            #region Q13: What does the 'default' keyword do in generics?
+            //Because generic type parameters can be either reference types (where the default is `null`)
+            //or value types (where the default is numeric zero, `false`, etc.),
+            //the `default` keyword returns the correct default value for type `T`.
+
+            #endregion
+
 
         }
 
