@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.Metrics;
 using System.Security.Cryptography.X509Certificates;
+using System.Xml.Serialization;
 using Advanced_C__1.generic_class;
 namespace Advanced_C__1
 {
@@ -46,6 +47,22 @@ namespace Advanced_C__1
 
             #endregion
 
-        }
+            #region Q5: Write a generic method FindMax<T> that finds maximum value
+            //public static T FindMax<T>(T[] array) where T :IComparable<T>
+            // {
+            //    if (array == null || array.Length == 0)
+            //        throw new ArgumentException("Array cannot be null or empty");
+
+            //    T max = array[0];
+            //    for (int i = 1; i < array.Length; i++)
+            //    {
+            //        if (array[i].CompareTo(max) > 0) //يعني التاني اكبر
+            //            max = array[i];
+            //    }
+            //    return max;
+            //}
+            #endregion
+
+    }
     }
 }
