@@ -241,6 +241,33 @@ namespace Advanced_C__1
             //(class Derived<T> : Base<T>)
             #endregion
 
+            #region Q20: Complete Exercise - Create a generic Cache<TKey,TValue > with Add, Get, Remove, Contains, and expiration support.
+            //Cache<string, string> cache = new Cache<string, string>();
+
+            ////  إضافة عنصر بصلاحية لمدة ثانيتين فقط
+            //Console.WriteLine("adding item with a 2-second expiration...");
+            //cache.Add("session_token", "moo123", TimeSpan.FromSeconds(2));
+
+            ////  التحقق من وجوده واسترجاعه فورا (قبل انتهاء الصلاحية)
+            //Console.WriteLine($"contains 'session_token': {cache.Contains("session_token")}"); // True
+            //Console.WriteLine($"value: {cache.Get("session_token")}"); // mo123
+
+            ////  الانتظار لمدة 3 ثوانٍ حتى تنتهي الصلاحية
+            //Console.WriteLine("\nWaiting for 3 seconds...");
+            //Thread.Sleep(3000);
+
+            //// التحقق  بعد انتهاء الوقت
+            //Console.WriteLine($"Contains 'session_token' after expiry: {cache.Contains("session_token")}"); // False
+            //Console.WriteLine($"Value after expiry: {cache.Get("session_token") ?? "Default (Expired or Null)"}"); // Default (Expired or Null)
+
+            ////   الحذف اليدوي
+            //cache.Add("user_role", "Admin", TimeSpan.FromMinutes(5));
+            //Console.WriteLine($"\nAdded 'user_role'. Contains: {cache.Contains("user_role")}"); // True
+
+            //cache.Remove("user_role");
+            //Console.WriteLine($"After Remove, contains 'user_role': {cache.Contains("user_role")}"); // False
+            #endregion
+
 
 
 
