@@ -81,11 +81,26 @@ namespace Advanced_C__1
             //The struct constraint -> (`where T : struct`) restricts type arguments to value types only (int,double,decimal,datetime,structs,bool,Nullable)
             //excluding reference types,( strings, class types arrays interfaces,delegate).
 
-        //public class MaxValue<T> where T : struct
-        //{
-        //    public T Value { get; set; }
-        //}
+            //public class MaxValue<T> where T : struct
+            //{
+            //    public T Value { get; set; }
+            //}
             #endregion
-    }
+
+            #region Q8: What is the 'class' constraint? Write an example.
+
+            //The class constraint -> (`where T : class`) restricts type arguments to reference types only (strings, class types, arrays, interfaces, delegate).
+            //It ensures that the type parameter is a reference type.
+
+            //class Test<T> where T : class
+            //{
+            //    public T Data;
+            //}
+
+            //Test<string> x = new Test<string>(); // Valid
+            //Test<int> x = new Test<int>(); // Error
+            #endregion
+        }
+       
     }
 }
