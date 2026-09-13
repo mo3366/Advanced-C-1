@@ -114,6 +114,25 @@ namespace Advanced_C__1
             //}
 
             #endregion
+
+            #region Q10: What is the interface constraint? Write an example.
+
+            //The interface constraint -> An interface constraint requires that the type argument implements a specified interface (directly or indirectly)
+           
+            //    public interface IPrintable
+            //{
+            //    void Print();
+            //}
+
+            //public class Printer<T> where T : IPrintable
+            //{
+            //    public void PrintItem(T item)
+            //    {
+            //        item.Print();
+            //    }
+            //}
+
+            #endregion
     }
 
     }
