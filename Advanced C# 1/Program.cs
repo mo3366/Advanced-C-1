@@ -136,18 +136,49 @@ namespace Advanced_C__1
 
             #region Q11: What is the base class constraint? Write an example.
             //A base class constraint requires that the type argument inherits from a specific base class
-        
-            //    class Animal
-        //{
-        //}
 
-        //class Test<T> where T : Animal
-        //{
-        //    public T Data;
-        //}
+            //    class Animal
+            //{
+            //}
+
+            //class Test<T> where T : Animal
+            //{
+            //    public T Data;
+            //}
 
             #endregion
-    }
+
+            #region Q12: How do you apply multiple constraints? Write an example.
+            //Multiple constraints are combined using commas. They must follow a strict order:
+            //1. Base class (if any),
+            //2. Interface(s),
+            //3. `new()` constraint (if any).
+            
+    //        public interface IAuditable
+    //    {
+    //        void Audit();
+    //    }
+    //    public class BaseEntity
+    //    {
+    //        public int Id { get; set; }
+    //    }
+    //    public class Order BaseEntity, IAuditable
+    //    {
+    //    public void Audit()
+    //    {
+    //        Console.WriteLine("Order audited");
+    //    }
+    //    public Order() { } 
+    //     public class Repository<T> where T : BaseEntity, IAuditable, new()
+    //{
+    //    public T Create()
+    //    {
+    //        return new T();
+    //    }
+    //}
+            #endregion
+
+        }
 
     }
 }
