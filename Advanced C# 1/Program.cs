@@ -100,7 +100,21 @@ namespace Advanced_C__1
             //Test<string> x = new Test<string>(); // Valid
             //Test<int> x = new Test<int>(); // Error
             #endregion
-        }
-       
+
+            #region Q9: What is the 'new()' constraint? Write an example.
+
+            //The new() constraint -> (The `new()` constraint (`where T : new()`) requires that the type argument has a public parameterless constructor, which allows new instances of `T` to be instantiated inside the generic type using `new T()`
+
+            //  public class Factory<T> where T : new()
+            //{
+            //    public T Create()
+            //    {
+            //        return new T();
+            //    }
+            //}
+
+            #endregion
+    }
+
     }
 }
