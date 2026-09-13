@@ -1,10 +1,279 @@
-﻿namespace Advanced_C__1
+﻿using System.Diagnostics.Metrics;
+using System.Security.Cryptography.X509Certificates;
+using System.Xml.Serialization;
+using Advanced_C__1.generic_class;
+namespace Advanced_C__1
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-           
+            #region Q1: What is a generic class? Why use generics?
+
+            //generic class : A generic class allows you to write classes with type parameters where the actual type is specified when the code is used rather than when it is written.
+
+            //Why use generics -->
+            //type Safety: Catches type mismatches at compile time instead of runtime
+            //Reusability: One implementation works for many different types
+            //Better Performance: Avoids boxing and unboxing overhead for value types
+            //Cleaner Code: Reduces code duplication and eliminates the need for separate classes
+            #endregion
+
+            #region Q2: Write a generic class Container<T> with Add and Get methods.
+            Container<int> container = new Container<int>();
+            container.Add(10);
+            container.Add(20);
+            Console.WriteLine(container.Get(0));
+            #endregion
+
+            #region Q3:What are multiple type parameters? Write Pair<TKey,TValue >.
+            // multiple type parameters : Multiple type parameters allow a generic class or structure to accept more than one type parameter to manage key-value relationships or mappings
+            //Pair<string, int> pair = new Pair<string, int>("Age", 25);
+            //Console.WriteLine(pair.ToString());
+
+            #endregion
+
+            #region Q4: What is a generic method? Write Swap<T> method.
+            //generic method -> A generic method is a method that is defined with type parameters, allowing it to operate
+            //on different data types while maintaining type safety. The actual type is specified when
+            //the method is called, rather than when it is defined.
+
+            //Public static void Swap<T>(ref T a, ref T b)
+            //{
+            //    T temp = a;
+            //    a = b;
+            //    b = temp;
+            //}
+
+            #endregion
+
+            #region Q5: Write a generic method FindMax<T> that finds maximum value
+            //public static T FindMax<T>(T[] array) where T :IComparable<T>
+            // {
+            //    if (array == null || array.Length == 0)
+            //        throw new ArgumentException("Array cannot be null or empty");
+
+            //    T max = array[0];
+            //    for (int i = 1; i < array.Length; i++)
+            //    {
+            //        if (array[i].CompareTo(max) > 0) //يعني التاني اكبر
+            //            max = array[i];
+            //    }
+            //    return max;
+            //}
+            #endregion
+
+            #region Q6: What is a generic interface? Write IRepository<T>
+            //generic interface:A generic interface is an interface defined with type parameters. Any class implementing it must specify the concrete type arguments
+            //    Public interface IRepository<T>
+            //{
+            //    void Add(T item);
+            //    T Get(int index);
+            //    List<T> GetAll();
+            //    T Remove(int index);
+            //}
+
+            #endregion
+
+
+            #region Q7: What is the 'struct' constraint? Write an example.
+
+            //The struct constraint -> (`where T : struct`) restricts type arguments to value types only (int,double,decimal,datetime,structs,bool,Nullable)
+            //excluding reference types,( strings, class types arrays interfaces,delegate).
+
+            //public class MaxValue<T> where T : struct
+            //{
+            //    public T Value { get; set; }
+            //}
+            #endregion
+
+            #region Q8: What is the 'class' constraint? Write an example.
+
+            //The class constraint -> (`where T : class`) restricts type arguments to reference types only (strings, class types, arrays, interfaces, delegate).
+            //It ensures that the type parameter is a reference type.
+
+            //class Test<T> where T : class
+            //{
+            //    public T Data;
+            //}
+
+            //Test<string> x = new Test<string>(); // Valid
+            //Test<int> x = new Test<int>(); // Error
+            #endregion
+
+            #region Q9: What is the 'new()' constraint? Write an example.
+
+            //The new() constraint -> (The `new()` constraint (`where T : new()`) requires that the type argument has a public parameterless constructor, which allows new instances of `T` to be instantiated inside the generic type using `new T()`
+
+            //  public class Factory<T> where T : new()
+            //{
+            //    public T Create()
+            //    {
+            //        return new T();
+            //    }
+            //}
+
+            #endregion
+
+            #region Q10: What is the interface constraint? Write an example.
+
+            //The interface constraint -> An interface constraint requires that the type argument implements a specified interface (directly or indirectly)
+
+            //    public interface IPrintable
+            //{
+            //    void Print();
+            //}
+
+            //public class Printer<T> where T : IPrintable
+            //{
+            //    public void PrintItem(T item)
+            //    {
+            //        item.Print();
+            //    }
+            //}
+
+            #endregion
+
+            #region Q11: What is the base class constraint? Write an example.
+            //A base class constraint requires that the type argument inherits from a specific base class
+
+            //    class Animal
+            //{
+            //}
+
+            //class Test<T> where T : Animal
+            //{
+            //    public T Data;
+            //}
+
+            #endregion
+
+            #region Q12: How do you apply multiple constraints? Write an example.
+            //Multiple constraints are combined using commas. They must follow a strict order:
+            //1. Base class (if any),
+            //2. Interface(s),
+            //3. `new()` constraint (if any).
+
+            //        public interface IAuditable
+            //    {
+            //        void Audit();
+            //    }
+            //    public class BaseEntity
+            //    {
+            //        public int Id { get; set; }
+            //    }
+            //    public class Order BaseEntity, IAuditable
+            //    {
+            //    public void Audit()
+            //    {
+            //        Console.WriteLine("Order audited");
+            //    }
+            //    public Order() { } 
+            //     public class Repository<T> where T : BaseEntity, IAuditable, new()
+            //{
+            //    public T Create()
+            //    {
+            //        return new T();
+            //    }
+            //}
+            #endregion
+
+            #region Q13: What does the 'default' keyword do in generics?
+            //Because generic type parameters can be either reference types (where the default is `null`)
+            //or value types (where the default is numeric zero, `false`, etc.),
+            //the `default` keyword returns the correct default value for type `T`.
+
+            #endregion
+
+            #region Q14: Write a SafeList<T> that returns default when the index is invalid.
+            //public class SafeList<T>
+            //{
+            //private List<T> _items = new List<T>();
+
+            //public void Add(T item) => _items.Add(item);
+
+            //public T Get(int index)
+            //{
+            //    if (index >= 0 && index < _items.Count)
+            //    {
+            //        return _items[index];
+            //    }
+            //    return default(T);
+            //}
+            //}
+
+            #endregion
+
+            #region Q15: What is covariance? Explain the 'out' keyword.
+            //Covariance allows a generic interface to use a more derived type than originally specified.
+
+            //The out keyword specifies that the type parameter is used exclusively as an output (such as a return type or property getter).
+            //If (S) is a subtype of (T), then IProducer<S> can be assigned to IProducer<T>
+
+            #endregion
+
+            #region Q16: What is contravariance? Explain the 'in' keyword.
+            //Contravariance allows a generic interface to use a less derived (base) type than originally specified.
+
+            //The in keyword specifies that the type parameter is used exclusively as an input (such as a method parameter).
+            //If (S) is a subtype of (T), then IProcessor<T> can be assigned to IProcessor<S>
+
+            #endregion
+
+            #region Q17: What is the difference between covariance and contravariance ?
+            //Covariance (out): Preserves assignment direction; allows using a generic interface with a derived type
+            //where a base type is expected (output-only).
+
+            //Contravariance (in): Reverses assignment direction; allows using a generic interface with a base type
+            //where a derived type is expected (input-only)
+            #endregion
+
+            #region Q18: How do static members work in generic types?
+            // Static fields and properties in a generic class are shared uniquely
+            // per closed constructed type.
+            // For instance, Box<int>.Count is maintained separately from Box<string>.Count.
+            #endregion
+
+
+            #region Q19: How can you inherit from a generic class?
+            //A derived class can inherit from a generic base class either by passing
+            //a concrete type argument or by passing along its own generic type parameter
+            //(class Derived<T> : Base<T>)
+            #endregion
+
+            #region Q20: Complete Exercise - Create a generic Cache<TKey,TValue > with Add, Get, Remove, Contains, and expiration support.
+            //Cache<string, string> cache = new Cache<string, string>();
+
+            ////  إضافة عنصر بصلاحية لمدة ثانيتين فقط
+            //Console.WriteLine("adding item with a 2-second expiration...");
+            //cache.Add("session_token", "moo123", TimeSpan.FromSeconds(2));
+
+            ////  التحقق من وجوده واسترجاعه فورا (قبل انتهاء الصلاحية)
+            //Console.WriteLine($"contains 'session_token': {cache.Contains("session_token")}"); // True
+            //Console.WriteLine($"value: {cache.Get("session_token")}"); // mo123
+
+            ////  الانتظار لمدة 3 ثوانٍ حتى تنتهي الصلاحية
+            //Console.WriteLine("\nWaiting for 3 seconds...");
+            //Thread.Sleep(3000);
+
+            //// التحقق  بعد انتهاء الوقت
+            //Console.WriteLine($"Contains 'session_token' after expiry: {cache.Contains("session_token")}"); // False
+            //Console.WriteLine($"Value after expiry: {cache.Get("session_token") ?? "Default (Expired or Null)"}"); // Default (Expired or Null)
+
+            ////   الحذف اليدوي
+            //cache.Add("user_role", "Admin", TimeSpan.FromMinutes(5));
+            //Console.WriteLine($"\nAdded 'user_role'. Contains: {cache.Contains("user_role")}"); // True
+
+            //cache.Remove("user_role");
+            //Console.WriteLine($"After Remove, contains 'user_role': {cache.Contains("user_role")}"); // False
+            #endregion
+
+
+
+
+
+
         }
+
     }
 }
