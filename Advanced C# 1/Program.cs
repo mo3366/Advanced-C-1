@@ -63,6 +63,18 @@ namespace Advanced_C__1
             //}
             #endregion
 
+            #region Q6: What is a generic interface? Write IRepository<T>
+            //generic interface:A generic interface is an interface defined with type parameters. Any class implementing it must specify the concrete type arguments
+        //    Public interface IRepository<T>
+        //{
+        //    void Add(T item);
+        //    T Get(int index);
+        //    List<T> GetAll();
+        //    T Remove(int index);
+        //}
+
+            #endregion
+
     }
     }
 }
