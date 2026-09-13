@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.Metrics;
+using System.Security.Cryptography.X509Certificates;
 using Advanced_C__1.generic_class;
 namespace Advanced_C__1
 {
@@ -28,6 +29,20 @@ namespace Advanced_C__1
             // multiple type parameters : Multiple type parameters allow a generic class or structure to accept more than one type parameter to manage key-value relationships or mappings
             //Pair<string, int> pair = new Pair<string, int>("Age", 25);
             //Console.WriteLine(pair.ToString());
+
+            #endregion
+
+            #region Q4: What is a generic method? Write Swap<T> method.
+            //generic method -> A generic method is a method that is defined with type parameters, allowing it to operate
+            //on different data types while maintaining type safety. The actual type is specified when
+            //the method is called, rather than when it is defined.
+
+            //Public static void Swap<T>(ref T a, ref T b)
+            //{
+            //    T temp = a;
+            //    a = b;
+            //    b = temp;
+            //}
 
             #endregion
 
