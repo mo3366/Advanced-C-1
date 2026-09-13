@@ -228,6 +228,12 @@ namespace Advanced_C__1
             //where a derived type is expected (input-only)
             #endregion
 
+            #region Q18: How do static members work in generic types?
+          // Static fields and properties in a generic class are shared uniquely
+          // per closed constructed type.
+          // For instance, Box<int>.Count is maintained separately from Box<string>.Count.
+            #endregion
+
 
 
 
