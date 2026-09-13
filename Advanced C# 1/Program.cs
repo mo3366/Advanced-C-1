@@ -206,11 +206,21 @@ namespace Advanced_C__1
 
             #region Q15: What is covariance? Explain the 'out' keyword.
             //Covariance allows a generic interface to use a more derived type than originally specified.
-            
+
             //The out keyword specifies that the type parameter is used exclusively as an output (such as a return type or property getter).
             //If (S) is a subtype of (T), then IProducer<S> can be assigned to IProducer<T>
 
             #endregion
+
+            #region Q16: What is contravariance? Explain the 'in' keyword.
+            //Contravariance allows a generic interface to use a less derived (base) type than originally specified.
+            
+            //The in keyword specifies that the type parameter is used exclusively as an input (such as a method parameter).
+            //If (S) is a subtype of (T), then IProcessor<T> can be assigned to IProcessor<S>
+
+            #endregion
+
+
 
 
         }
