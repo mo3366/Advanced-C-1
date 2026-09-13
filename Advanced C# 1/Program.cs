@@ -23,6 +23,14 @@ namespace Advanced_C__1
             container.Add(20);
             Console.WriteLine(container.Get(0));
             #endregion
+
+            #region Q3:What are multiple type parameters? Write Pair<TKey,TValue >.
+            // multiple type parameters : Multiple type parameters allow a generic class or structure to accept more than one type parameter to manage key-value relationships or mappings
+            //Pair<string, int> pair = new Pair<string, int>("Age", 25);
+            //Console.WriteLine(pair.ToString());
+
+            #endregion
+
         }
     }
 }
