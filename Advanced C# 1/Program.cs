@@ -229,9 +229,16 @@ namespace Advanced_C__1
             #endregion
 
             #region Q18: How do static members work in generic types?
-          // Static fields and properties in a generic class are shared uniquely
-          // per closed constructed type.
-          // For instance, Box<int>.Count is maintained separately from Box<string>.Count.
+            // Static fields and properties in a generic class are shared uniquely
+            // per closed constructed type.
+            // For instance, Box<int>.Count is maintained separately from Box<string>.Count.
+            #endregion
+
+
+            #region Q19: How can you inherit from a generic class?
+            //A derived class can inherit from a generic base class either by passing
+            //a concrete type argument or by passing along its own generic type parameter
+            //(class Derived<T> : Base<T>)
             #endregion
 
 
