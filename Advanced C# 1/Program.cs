@@ -214,11 +214,21 @@ namespace Advanced_C__1
 
             #region Q16: What is contravariance? Explain the 'in' keyword.
             //Contravariance allows a generic interface to use a less derived (base) type than originally specified.
-            
+
             //The in keyword specifies that the type parameter is used exclusively as an input (such as a method parameter).
             //If (S) is a subtype of (T), then IProcessor<T> can be assigned to IProcessor<S>
 
             #endregion
+
+            #region Q17: What is the difference between covariance and contravariance ?
+            //Covariance (out): Preserves assignment direction; allows using a generic interface with a derived type
+            //where a base type is expected (output-only).
+
+            //Contravariance (in): Reverses assignment direction; allows using a generic interface with a base type
+            //where a derived type is expected (input-only)
+            #endregion
+
+
 
 
 
