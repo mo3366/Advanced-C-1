@@ -65,16 +65,27 @@ namespace Advanced_C__1
 
             #region Q6: What is a generic interface? Write IRepository<T>
             //generic interface:A generic interface is an interface defined with type parameters. Any class implementing it must specify the concrete type arguments
-        //    Public interface IRepository<T>
-        //{
-        //    void Add(T item);
-        //    T Get(int index);
-        //    List<T> GetAll();
-        //    T Remove(int index);
-        //}
+            //    Public interface IRepository<T>
+            //{
+            //    void Add(T item);
+            //    T Get(int index);
+            //    List<T> GetAll();
+            //    T Remove(int index);
+            //}
 
             #endregion
 
+
+            #region Q7: What is the 'struct' constraint? Write an example.
+
+            //The struct constraint -> (`where T : struct`) restricts type arguments to value types only (int,double,decimal,datetime,structs,bool,Nullable)
+            //excluding reference types,( strings, class types arrays interfaces,delegate).
+
+        //public class MaxValue<T> where T : struct
+        //{
+        //    public T Value { get; set; }
+        //}
+            #endregion
     }
     }
 }
