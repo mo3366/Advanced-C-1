@@ -118,7 +118,7 @@ namespace Advanced_C__1
             #region Q10: What is the interface constraint? Write an example.
 
             //The interface constraint -> An interface constraint requires that the type argument implements a specified interface (directly or indirectly)
-           
+
             //    public interface IPrintable
             //{
             //    void Print();
@@ -131,6 +131,20 @@ namespace Advanced_C__1
             //        item.Print();
             //    }
             //}
+
+            #endregion
+
+            #region Q11: What is the base class constraint? Write an example.
+            //A base class constraint requires that the type argument inherits from a specific base class
+        
+            //    class Animal
+        //{
+        //}
+
+        //class Test<T> where T : Animal
+        //{
+        //    public T Data;
+        //}
 
             #endregion
     }
